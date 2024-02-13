@@ -1,17 +1,25 @@
-from customllm import CustomLLM
+from flask import Flask, request, jsonify, render_template
+from src.claims import Claim_RAG
+from src.claims.document_loader import DocumentLoader
 
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
+app = Flask(__name__)
 
-question = "Who won the FIFA World Cup in the year 1994? "
+@app.get("/")
+def index():
+    #member_id = request.args.get('member_id')
+    #print(member_id)
+    #document_loader.load()
+    return render_template("index.html")
 
-template = """Question: {question}
+@app.post("/generate")
+def generate():
+    prompt = request.get_json().get("query")
+    print(prompt)
+    #response = generate_text(prompt)
+    response = claim_rag.respond_to_query(prompt)
+    return jsonify({"answer": response})
 
-"""
-
-prompt = PromptTemplate(template=template, input_variables=["question"])
-
-llm = CustomLLM()
-llm_chain = LLMChain(prompt=prompt, llm=llm)
-
-print(llm_chain.run(question))
+if __name__ == "__main__":
+    document_loader = DocumentLoader()
+    claim_rag = Claim_RAG(name="claims")
+    app.run()

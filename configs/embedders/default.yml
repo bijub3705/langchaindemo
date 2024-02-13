@@ -1,0 +1,5 @@
+embedders:
+  - name: fb_aws_embedder
+    api_url: https://c9ejquzh6yum3xqf.us-east-1.aws.endpoints.huggingface.cloud
+    api_token: ${AWS_API_TOKEN}
+   

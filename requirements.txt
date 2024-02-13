@@ -1,1 +1,7 @@
-langchain
+langchain==0.1.6
+Flask==3.0.2
+chromadb==0.4.22
+text_generation
+cattrs
+pyyaml
+attrs
