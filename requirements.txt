@@ -5,3 +5,4 @@ text_generation
 cattrs
 pyyaml
 attrs
+python-dotenv
