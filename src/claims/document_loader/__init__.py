@@ -29,8 +29,7 @@ class DocumentLoader:
         if len(documents) > 0:
             self.load_chunk_persist_data(documents)
     def load_claim_data(self):
-        documents=getClaimData("C:\\Users\\prade\\python\\projectllm\\bijulangchain\\langchaindemo\\docs\\context_help.csv")
-
+        documents=getClaimData("docs/context_help.csv")
         self.chroma_db.add_data(documents)
         
     def load_chunk_persist_data(self,documents):
