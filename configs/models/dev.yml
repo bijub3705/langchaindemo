@@ -1,8 +1,8 @@
 models:
   - name: fb_aws_llm
-    api_url: https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf
-    api_token: ${HF_API_TOKEN}
-    max_tokens: 1000
+    api_url: https://z8dvl7fzhxxcybd8.eu-west-1.aws.endpoints.huggingface.cloud
+    api_token: ${AWS_API_TOKEN}
+    max_tokens: 500
     temperature: 1
     top_p: 0.1
     top_k: 0
@@ -39,6 +39,30 @@ models:
     api_url: https://z8dvl7fzhxxcybd8.eu-west-1.aws.endpoints.huggingface.cloud
     api_token: ${AWS_API_TOKEN}
     max_tokens: 200
+    temperature: 1
+    top_p: 0.1
+    top_k: 0
+    do_sample: False
+    return_full_text: False
+    frequency_penalty: 0
+    presence_penalty: 0
+
+  - name: bart-large
+    api_url: https://api-inference.huggingface.co/models/facebook/bart-large
+    api_token: ${HF_API_TOKEN}
+    max_tokens: 500
+    temperature: 1
+    top_p: 0.1
+    top_k: 0
+    do_sample: False
+    return_full_text: False
+    frequency_penalty: 0
+    presence_penalty: 0
+
+  - name: bert-base-NER
+    api_url: https://api-inference.huggingface.co/models/dslim/bert-base-NER
+    api_token: ${HF_API_TOKEN}
+    max_tokens: 500
     temperature: 1
     top_p: 0.1
     top_k: 0
