@@ -20,4 +20,4 @@ class ChromaDB:
         return self.db.similarity_search(query=query)
     
     def retriever(self):
-        return self.db.as_retriever(search_kwargs={"k": 1})
+        return self.db.as_retriever(search_kwargs={"k": 3})

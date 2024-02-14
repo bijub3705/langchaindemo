@@ -6,7 +6,7 @@ from langchain_community.document_loaders import Docx2txtLoader
 from langchain_community.document_loaders import AirbyteJSONLoader
 from langchain.text_splitter import CharacterTextSplitter
 from src.claims.vector_db import get_chroma_db
-
+from src.claims.document_loader.getclaim import getClaimData
 class DocumentLoader:
     def __init__(self):
         self.doc_folder_path = "docs"
@@ -28,7 +28,11 @@ class DocumentLoader:
             documents.extend(document)
         if len(documents) > 0:
             self.load_chunk_persist_data(documents)
+    def load_claim_data(self):
+        documents=getClaimData("C:\\Users\\prade\\python\\projectllm\\bijulangchain\\langchaindemo\\docs\\context_help.csv")
 
+        self.chroma_db.add_data(documents)
+        
     def load_chunk_persist_data(self,documents):
         document_splitter = CharacterTextSplitter(chunk_size=1500, chunk_overlap=10)
         document_chunks = document_splitter.split_documents(documents)

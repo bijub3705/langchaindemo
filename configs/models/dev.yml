@@ -35,3 +35,14 @@ models:
     frequency_penalty: 0
     presence_penalty: 0
   
+  - name: summarize-model
+    api_url: https://z8dvl7fzhxxcybd8.eu-west-1.aws.endpoints.huggingface.cloud
+    api_token: ${AWS_API_TOKEN}
+    max_tokens: 200
+    temperature: 1
+    top_p: 0.1
+    top_k: 0
+    do_sample: False
+    return_full_text: False
+    frequency_penalty: 0
+    presence_penalty: 0
