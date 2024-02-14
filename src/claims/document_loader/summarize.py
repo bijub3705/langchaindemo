@@ -4,7 +4,7 @@ import json
 from langchain_community.chat_models import ChatHuggingFace
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
-
+from huggingface_hub import login
 
 
 #json_data={"claim_id":"F123","member": "Sam Brady","provider": "Memorial Hospital","service":"Wellness Exam","net_amount":"$250","copay":"$0"}
@@ -23,9 +23,11 @@ output: This entry represents a medical claim for a patient named John Doe, with
 
 
 def getModel():
+    
     config=get_constants().MODELS.get("summarize-model")
     url=config.api_url #  "https://z8dvl7fzhxxcybd8.eu-west-1.aws.endpoints.huggingface.cloud"
     token= config.api_token
+    login(token= config.api_token)
     llm = HuggingFaceEndpoint(
         endpoint_url=url,
         huggingfacehub_api_token=token,
