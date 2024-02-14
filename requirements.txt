@@ -1,8 +1,9 @@
 langchain==0.1.6
 Flask==3.0.2
-chromadb==0.4.22
+chromadb==0.3.29
 text_generation
 cattrs
 pyyaml
 attrs
+transformers==4.37.1
 python-dotenv
