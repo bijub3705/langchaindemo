@@ -17,7 +17,7 @@ class ChromaDB:
         self.db.add_documents(documents=data)
     
     def retrieve_data(self, query):
-        return self.db.similarity_search(query=query)
+        return self.db.similarity_search(query=query, k=3)
     
     def retriever(self):
         return self.db.as_retriever(search_kwargs={"k": 3})

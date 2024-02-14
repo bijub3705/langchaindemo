@@ -6,3 +6,4 @@ cattrs
 pyyaml
 attrs
 python-dotenv
+streamlit
