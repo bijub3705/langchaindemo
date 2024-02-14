@@ -42,7 +42,7 @@ class ChatBox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch('http://127.0.0.1:5000/generate', {
+        fetch('https://congenial-giggle-r7wrr4jw994f555j-5000.app.github.dev/generate', {
             method: 'POST',
             mode: 'cors',
             headers: {

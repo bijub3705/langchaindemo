@@ -8,7 +8,7 @@ from src.claims.prompt import get_prompt
 class Claim_RAG:
     def __init__(self, name):
         self.name = name
-        self.model = get_llm("zephyr-7b-beta")
+        self.model = get_llm("summarize-model")
         self.vector_db = get_chroma_db()
         self.retriever = self.vector_db.retriever()
         self.prompt = get_prompt()

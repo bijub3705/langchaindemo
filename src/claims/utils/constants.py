@@ -49,14 +49,14 @@ class Constants:
         self.load_constants()
 
     def load_constants(self):
-        with open(self.config_path + "\\config.yml", 'r') as configfile:
+        with open(self.config_path + "/config.yml", 'r') as configfile:
             self.data = yaml.safe_load(configfile)
         self.config = cattrs.structure(self.data, Configs)
         self.load_models(self.config.models)
         self.load_embedders(self.config.embedders)
 
     def load_models(self, model_config_file_name):
-        with open(self.config_path + "\\models\\"+model_config_file_name+".yml", 'r') as modelsfile:
+        with open(self.config_path + "/models/"+model_config_file_name+".yml", 'r') as modelsfile:
             self.models_data = yaml.safe_load(modelsfile)
         for(model_data) in self.models_data["models"]:
             self.update_env_variables(model_data)
@@ -65,7 +65,7 @@ class Constants:
             self.MODELS.update({model_object.name: model_object})
 
     def load_embedders(self, embedder_config_file_name):
-        with open(self.config_path + "\\embedders\\"+embedder_config_file_name+".yml", 'r') as embeddersfile:
+        with open(self.config_path + "/embedders/"+embedder_config_file_name+".yml", 'r') as embeddersfile:
             self.embedders_data = yaml.safe_load(embeddersfile)
         for(embedder_data) in self.embedders_data["embedders"]:
             self.update_env_variables(embedder_data)

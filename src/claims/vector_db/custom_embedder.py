@@ -11,7 +11,7 @@ default_embedder = HuggingFaceHubEmbeddings(
     huggingfacehub_api_token=config.api_token
 )
 
-class CustomEmbedder(EmbeddingFunction[Documents]):
+class CustomEmbedder(EmbeddingFunction):
     def __init__(self, API_URL, API_TOKEN):
         self.API_URL = API_URL
         self.API_TOKEN = API_TOKEN
